@@ -1,7 +1,13 @@
 <template>
     <v-container fluid>
-        <v-layout>
-            <h1>Menu Pages</h1>
-        </v-layout>
+        <HomePlans/>
     </v-container>
 </template>
+<script>
+import HomePlans from '@/components/HomePlans'
+export default {
+    components: {
+        HomePlans
+    }
+}
+</script>

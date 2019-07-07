@@ -24,6 +24,11 @@
                             </div>
                         </div>
                     </v-card-title>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
+                        <v-btn outline block color="green"
+                            @click="showRecipes('keto')"
+                            >Select this Plan</v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-flex>
             <v-flex xs12 sm12 md4>
@@ -44,6 +49,11 @@
                             </div>
                         </div>
                     </v-card-title>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
+                        <v-btn outline block color="green"
+                            @click="showRecipes('paleo')"
+                            >Select this Plan</v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-flex>
              <v-flex xs12 sm12 md4>
@@ -64,8 +74,23 @@
                             </div>
                         </div>
                     </v-card-title>
+                    <v-card-actions v-if="['menu'].includes($route.name)">
+                        <v-btn outline block color="green"
+                            @click="showRecipes('vegan')"
+                            >Select this Plan</v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-flex>
         </v-layout>
     </v-container>
 </template>
+<script>
+export default {
+    name: 'HomePlans',
+    methods: {
+        showRecipes(plan) {
+            this.$store.dispatch('getRecipes', plan);
+        }
+    }
+}
+</script>
